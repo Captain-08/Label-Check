@@ -2,6 +2,10 @@
 
 Prototype built for **Smart India Hackathon 2026, problem statement SIH26034**.
 
+## 🚀 Live Demo
+
+[**Open LabelCheck →**](https://labelcheckerr.netlify.app/)
+
 This is a **demo prototype only**. It does not perform real OCR or apply real
 Legal Metrology rules — analysis results are simulated so the full user
 experience can be reviewed end-to-end before the real pipeline is built.
