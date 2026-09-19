@@ -1,0 +1,86 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    @apply antialiased;
+  }
+  body {
+    @apply bg-paper text-ink-700 font-sans;
+  }
+  ::selection {
+    @apply bg-ink-700 text-white;
+  }
+  *:focus-visible {
+    outline: 2px solid #14213D;
+    outline-offset: 2px;
+  }
+}
+
+@layer utilities {
+  .tabular {
+    font-variant-numeric: tabular-nums;
+  }
+}
+
+/* Corner-bracket "scan frame" motif: the app's signature visual element,
+   used anywhere the product image is treated as a scan target. */
+.scan-frame {
+  position: relative;
+}
+.scan-frame::before,
+.scan-frame::after,
+.scan-frame .sf-br,
+.scan-frame .sf-bl {
+  content: '';
+  position: absolute;
+  width: 18px;
+  height: 18px;
+  border-color: var(--sf-color, #8A6D3B);
+  z-index: 10;
+  pointer-events: none;
+}
+.scan-frame::before {
+  top: -1px;
+  left: -1px;
+  border-top: 2px solid var(--sf-color, #8A6D3B);
+  border-left: 2px solid var(--sf-color, #8A6D3B);
+}
+.scan-frame::after {
+  top: -1px;
+  right: -1px;
+  border-top: 2px solid var(--sf-color, #8A6D3B);
+  border-right: 2px solid var(--sf-color, #8A6D3B);
+}
+.scan-frame .sf-bl {
+  bottom: -1px;
+  left: -1px;
+  border-bottom: 2px solid var(--sf-color, #8A6D3B);
+  border-left: 2px solid var(--sf-color, #8A6D3B);
+}
+.scan-frame .sf-br {
+  bottom: -1px;
+  right: -1px;
+  border-bottom: 2px solid var(--sf-color, #8A6D3B);
+  border-right: 2px solid var(--sf-color, #8A6D3B);
+}
+
+/* Print styles for the compliance report page */
+@media print {
+  body * {
+    visibility: hidden;
+  }
+  #printable-report,
+  #printable-report * {
+    visibility: visible;
+  }
+  #printable-report {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+  }
+  .no-print {
+    display: none !important;
+  }
+}
